@@ -1,6 +1,4 @@
-import React, {
-  createContext, PropsWithChildren, useReducer,
-} from 'react';
+import React, { createContext, PropsWithChildren, useReducer } from 'react';
 
 const initialState = {
   lessonType: '',
@@ -20,16 +18,15 @@ export const BuilderContext = createContext<{
   dispatch: React.Dispatch<any>;
 }>({
   state: initialState,
-  dispatch: () => {}
+  dispatch: () => null,
 });
 
 interface Action {
-    type: string
-    payload: any
+  type: string;
+  payload: any;
 }
 
 const reducer = (state: any, action: Action): any => {
-  
   switch (action.type) {
     case 'SET_LESSON_TYPE':
       state = {
@@ -74,19 +71,18 @@ const reducer = (state: any, action: Action): any => {
       };
       break;
     default:
-      console.error('Could not process action type', action.type)
+      console.error('Could not process action type', action.type);
       break;
   }
   // console.log('STATE:', state);
   return state;
 };
 
-
-const Provider = (props: PropsWithChildren<any>) => {
+const Provider = (props: PropsWithChildren<any>): JSX.Element => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <BuilderContext.Provider value={{state, dispatch}}>
-        ...{props.children}
+    <BuilderContext.Provider value={{ state, dispatch }}>
+      ...{props.children}
     </BuilderContext.Provider>
   );
 };
