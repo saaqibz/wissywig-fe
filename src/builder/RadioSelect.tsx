@@ -1,27 +1,26 @@
-import React, { useContext } from 'react';
+import React, { Dispatch } from 'react';
 import styled from '@emotion/styled';
 import { Radio, Typography } from 'antd';
 import { Option } from './model/model';
-
-import { BuilderContext } from './BuilderProvider';
+import { RadioChangeEvent } from 'antd/lib/radio';
 
 const { Title } = Typography;
 
 interface Props {
   title: string;
   options: Option[];
-  stateSelector: string;
-  actionType?: string;
+  actionType: string;
+  selected: string;
+  dispatch: Dispatch<any>;
 }
 
 function RadioSelect(props: Props): JSX.Element {
-  const { state, dispatch } = useContext(BuilderContext);
-  const selectedRadio = state[props.stateSelector];
+  const selectedRadio = props.selected;
 
-  const action = (id: string) => {
-    dispatch({
+  const action = (checkedValues: string) => {
+    props.dispatch({
       type: props.actionType,
-      payload: id,
+      payload: checkedValues,
     });
   };
 
@@ -30,7 +29,7 @@ function RadioSelect(props: Props): JSX.Element {
       <Title level={4}>{props.title}</Title>
       <Radio.Group value={selectedRadio} onChange={(e): void => action(e.target.value)}>
         {props.options.map((opt) => (
-          <StyledRadio value={opt.value} key={`${props.stateSelector}-${opt.value}`}>
+          <StyledRadio value={opt.value} key={`${props.selected}-${opt.value}`}>
             {opt.name}
           </StyledRadio>
         ))}
@@ -46,7 +45,7 @@ const Container = styled.div`
 const StyledRadio = styled(Radio)`
   display: block;
   height: 30px;
-  lineheight: 30px;
+  line-height: 30px;
 `;
 
 export default RadioSelect;

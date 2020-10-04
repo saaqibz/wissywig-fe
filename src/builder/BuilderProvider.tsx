@@ -1,6 +1,7 @@
 import React, { createContext, PropsWithChildren, useReducer } from 'react';
+import { BuilderState } from './model/model';
 
-const initialState = {
+const initialState: BuilderState = {
   lessonType: '',
   numRooms: 1,
   numFocusAreas: 1,
@@ -8,6 +9,7 @@ const initialState = {
   roomSize: 'small',
   puzzleDifficulty: 'easy',
   lessonOption: 1,
+  escapeRoomConfigs: undefined,
 
   loading: false,
   error: null,

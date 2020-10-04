@@ -69,8 +69,9 @@ function SelectLessonType() {
     <RadioSelect
       title="Lesson Type"
       options={options}
-      stateSelector="lessonType"
+      selected="lessonType"
       actionType="SET_LESSON_TYPE"
+      dispatch={() => undefined}
     />
   );
 }
@@ -86,8 +87,9 @@ function SelectNumRooms() {
     <RadioSelect
       title="Number of Rooms"
       options={options}
-      stateSelector="numRooms"
+      selected="numRooms"
       actionType="SET_NUM_ROOMS"
+      dispatch={() => undefined}
     />
   );
 }
@@ -103,8 +105,9 @@ function SelectNumFocusAreas() {
     <RadioSelect
       title="Number of Focus Areas"
       options={options}
-      stateSelector="numFocusAreas"
+      selected="numFocusAreas"
       actionType="SET_NUM_FOCUS_AREAS"
+      dispatch={() => undefined}
     />
   );
 }
@@ -120,8 +123,9 @@ function SelectNumActivities() {
     <RadioSelect
       title="Number of Activities"
       options={options}
-      stateSelector="numActivities"
+      selected="numActivities"
       actionType="SET_NUM_ACTIVITIES"
+      dispatch={() => undefined}
     />
   );
 }
@@ -135,8 +139,9 @@ function SelectRoomSize() {
     <RadioSelect
       title="Number of Focus Areas"
       options={options}
-      stateSelector="roomSize"
+      selected="roomSize"
       actionType="SET_ROOM_SIZE"
+      dispatch={() => undefined}
     />
   );
 }
@@ -150,8 +155,9 @@ function SelectPuzzleDifficulty() {
     <RadioSelect
       title="Puzzle Difficulty"
       options={options}
-      stateSelector="puzzleDifficulty"
+      selected="puzzleDifficulty"
       actionType="SET_PUZZLE_DIFFICULTY"
+      dispatch={() => undefined}
     />
   );
 }
@@ -167,8 +173,9 @@ function SelectLessonOption() {
     <RadioSelect
       title="Lesson Option"
       options={options}
-      stateSelector="lessonOption"
+      selected="lessonOption"
       actionType="SET_LESSON_OPTION"
+      dispatch={() => undefined}
     />
   );
 }
