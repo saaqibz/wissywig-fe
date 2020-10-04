@@ -4,7 +4,14 @@ export interface Option {
 }
 
 export interface LessonTypeOption extends Option {
+  description: string;
+  icon: string;
   type: GamePlatform;
+  url?: string;
+}
+
+export interface LearningMediaOption extends Option {
+  type: LearningMedia;
 }
 
 export enum GamePlatform {
@@ -12,10 +19,10 @@ export enum GamePlatform {
   AR = 'Augmented Reality',
 }
 
-export enum EscapeRoomInteractionType {
-  ZOOM_IN_ON_PIC = 'ZOOM_IN_ON_PIC',
-  EXPANDABLE_SEQ = 'EXPANDABLE_SEQ',
-  IN_ROOM_POPUP = 'IN_ROOM_POPUP',
+export enum LearningMedia {
+  PICTURE = 'picture',
+  VIDEO = 'video',
+  SEQUENCE = 'Sequence',
 }
 
 export enum EscapeRoomActivityType {
@@ -41,6 +48,6 @@ export interface BuilderState {
 }
 
 export interface EscapeRoomConfigs {
-  interactions: EscapeRoomInteractionType[];
+  learningMedia: LearningMedia[];
   activities: EscapeRoomActivityType[];
 }
